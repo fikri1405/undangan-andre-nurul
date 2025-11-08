@@ -109,7 +109,6 @@ a { text-decoration: none; color: inherit; }
 .section-title { font-size: 2.2em; margin-bottom: 30px; letter-spacing: 1px; }
 .undangan-text { font-family: var(--font-body); font-size: 1.2em; letter-spacing: 5px; margin-bottom: 40px; font-weight: 300; }
 .mempelai-container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
-.pas-foto { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-gold-accent); object-fit: cover; margin-bottom: 15px; }
 .nama-mempelai { font-size: 2.5em; }
 .pemisah { font-size: 2.5em; }
 .putra-putri { font-size: 0.9em; color: #AAA; font-style: normal; line-height: 1.3; }
