@@ -139,11 +139,21 @@ a { text-decoration: none; color: inherit; }
     background-color: var(--color-gold-accent);
     color: var(--color-darker-bg);
     border: none;
-    font-size: 1.2em;
+    /* Kita sesuaikan font size agar pas */
+    font-size: 0.9em; 
     font-weight: bold;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    
+    /* === HAPUS GAYA LINGKARAN === */
+    /* border-radius: 50%; */
+    /* width: 40px; */
+    /* height: 40px; */
+
+    /* === GANTI DENGAN GAYA PERSEGI PANJANG === */
+    border-radius: 5px; /* Sudut membulat */
+    width: auto; /* Lebar otomatis sesuai teks */
+    height: auto; /* Tinggi otomatis */
+    padding: 10px 15px; /* Padding agar teks tidak mepet */
+    
     cursor: pointer;
     transition: background-color 0.3s;
 }
