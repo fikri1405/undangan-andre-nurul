@@ -1,14 +1,14 @@
 /* Import Google Fonts: Great Vibes (Heading) dan Poppins (Body) */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
 
-/* Variabel Warna dan Font (Kembali ke versi awal yang bersih) */
+/* Variabel Warna dan Font */
 :root {
     --color-background: #141414; /* Dark Charcoal */
     --color-gold-accent: #C9A045; /* Muted Gold */
     --color-text-light: #FFFFFF; /* White */
     --color-darker-bg: #0A0A0A; 
     --font-heading: 'Great vibes', cursive;
-    --font-body: 'Poppins', sans-serif; /* Kembali ke Poppins */
+    --font-body: 'Poppins', sans-serif;
 }
 
 /* BASE STYLES */
@@ -17,13 +17,11 @@ body {
     color: var(--color-text-light);
     font-family: var(--font-body);
     margin: 0;
-    /* Kita sisakan padding di bawah untuk tombol navigasi */
-    padding: 0 0 80px 0; 
+    padding: 0; /* Padding bawah dihapus karena tidak ada navigasi fixed lagi */
     overflow-x: hidden;
     line-height: 1.6; 
     
-    /* Ornamen background halus */
-    /* GANTI 'assets/ornamen-bg.png' dengan file ornamenmu */
+    /* Ornamen background */
     background-image: url('assets/ornamen-bg.png'); 
     background-repeat: repeat;
     background-size: 100px; 
@@ -38,7 +36,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: var(--color-background); 
-    opacity: 0.80; /* Dibuat 80% agar ornamen lebih terlihat */
+    opacity: 0.80; 
     z-index: -1; 
 }
 
@@ -73,105 +71,45 @@ a { text-decoration: none; color: inherit; }
 
 
 /* ================================== */
-/* SECTION UTAMA (Sistem Halaman) */
+/* SECTION UTAMA (SCROLL MODE) */
 /* ================================== */
 #main-content {
     display: none; /* Disembunyikan sampai tombol Buka diklik */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 10px; 
-    position: relative; /* Diperlukan untuk canvas */
+    position: relative; 
 }
 
-/* ===== CANVAS UNTUK ANIMASI PARTIKEL (BARU) ===== */
+/* CANVAS PARTIKEL */
 #particle-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Di atas background (body::before), di bawah konten */
-    pointer-events: none; /* Agar tidak menghalangi klik */
+    z-index: 1; 
+    pointer-events: none; 
 }
 
-/* INTI DARI SISTEM HALAMAN */
+/* MODIFIKASI UNTUK SCROLL: Semua halaman ditampilkan berurutan ke bawah */
 .page {
-    display: none; /* Sembunyikan semua halaman by default */
-    padding: 60px 20px;
+    display: block; /* SELALU TAMPIL */
+    padding: 80px 20px; /* Tambah padding atas/bawah agar lebih lega saat di-scroll */
     text-align: center;
-    animation: fadeIn 1s ease-in-out; /* Efek fade-in */
     
     /* Layering Halaman */
     position: relative; 
-    z-index: 2; /* Konten halaman ada di atas partikel */
-    background-color: transparent; 
-}
-
-.page.active-page {
-    display: block; /* Tampilkan HANYA halaman yang aktif */
-}
-
-/* Animasi Fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================================== */
-/* NAVIGASI HALAMAN (Baru) */
-/* ================================== */
-#page-navigation {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-darker-bg);
-    border-top: 1px solid var(--color-gold-accent);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 100; /* Navigasi paling atas */
-    box-sizing: border-box; 
-}
-
-.nav-btn {
-    background-color: var(--color-gold-accent);
-    color: var(--color-darker-bg);
-    border: none;
-    font-size: 0.9em; 
-    font-weight: bold;
+    z-index: 2; 
+    background-color: transparent;
     
-    /* === INI YANG PENTING: GAYA KOTAK PANJANG (BOX) === */
-    border-radius: 5px; /* Sudut membulat (bukan 50%) */
-    width: auto; /* Lebar otomatis sesuai teks */
-    height: auto; /* Tinggi otomatis */
-    padding: 10px 15px; /* Jarak teks ke pinggir tombol */
-    
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-family: var(--font-body); /* Pastikan font-nya benar */
-}
-
-.nav-btn:hover {
-    background-color: #FFD700;
-}
-
-.nav-btn:disabled {
-    background-color: #555;
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-#page-indicator {
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--color-gold-accent);
+    /* Opsional: Garis pemisah tipis antar section jika mau */
+    /* border-bottom: 1px solid #222; */
 }
 
 
 /* ================================== */
-/* STYLING KONTEN (Sama seperti sebelumnya) */
+/* STYLING KONTEN */
 /* ================================== */
 .section-title { font-size: 2.8em; margin-bottom: 30px; letter-spacing: 1px; }
 .undangan-text { font-family: var(--font-body); font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; font-weight: 300; }
@@ -202,7 +140,7 @@ a { text-decoration: none; color: inherit; }
     margin-top: 40px; 
     border-radius: 8px; 
 }
-.countdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; } /* 2 kolom di mobile */
+.countdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; } 
 .countdown-box { border: 1px solid var(--color-gold-accent); border-radius: 5px; padding: 10px; }
 .countdown-box span { font-size: 2.5em; font-weight: 600; }
 .countdown-box p { margin: 5px 0 0 0; font-size: 0.8em; }
@@ -236,7 +174,7 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-maps:hover, .btn-direct-maps:hover, .btn-copy-rek:hover, .btn-rsvp:hover { background-color: #FFD700; }
 
-#penutup { padding-bottom: 60px; border-top: 1px solid #333; margin-top: 30px; }
+#penutup { padding-bottom: 100px; /* Extra padding di paling bawah agar tidak terlalu mepet layar */ margin-top: 30px; border-top: 1px solid #333; padding-top: 50px;}
 .nama-mempelai-footer { font-size: 3em; }
 
 /* ================================== */
@@ -255,5 +193,5 @@ a { text-decoration: none; color: inherit; }
         align-items: flex-start;
     }
     .separator-line { height: 120px; width: 1px; margin: auto 0; }
-    .countdown-grid { grid-template-columns: repeat(4, 1fr); } /* 4 kolom di desktop */
+    .countdown-grid { grid-template-columns: repeat(4, 1fr); } 
 }
