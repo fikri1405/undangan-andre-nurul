@@ -1,6 +1,35 @@
 // Final Version: Menggabungkan Buka Undangan, Musik, Salin Rekening, Countdown Timer, dan Navigasi Halaman
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // === [EDIT BARU] Ambil Nama Tamu dari URL ===
+    try {
+        // 1. Buat objek URLSearchParams dari URL saat ini
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // 2. Ambil parameter 'to' (contoh: ...index.html?to=Budi)
+        // 'to' adalah key-nya, 'Budi' adalah value-nya
+        const namaTamu = urlParams.get('to'); 
+        
+        // 3. Cek jika parameter 'to' ada isinya
+        if (namaTamu) {
+            // 4. Temukan elemen H1 berdasarkan ID yang tadi kita tambahkan
+            const namaTamuElement = document.getElementById('nama-tamu-placeholder');
+            
+            // 5. Jika elemennya ketemu, ganti teksnya
+            if (namaTamuElement) {
+                // Menggunakan .textContent itu lebih aman daripada .innerHTML
+                // Ini akan otomatis mengganti '[Nama Tamu Undangan]'
+                namaTamuElement.textContent = namaTamu; 
+            }
+        }
+    } catch (error) {
+        // Jaga-jaga jika ada error, tapi seharusnya aman
+        console.warn("Gagal memproses nama tamu dari URL:", error);
+    }
+    // === [AKHIR EDIT BARU] ===
+
+
     // === Seleksi Elemen Utama ===
     const splashScreen = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-content');
