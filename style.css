@@ -65,9 +65,9 @@ a { text-decoration: none; color: inherit; }
     border-bottom: 2px solid var(--color-gold-accent); 
     box-sizing: border-box;
 }
-.splash-nama { font-size: 4em; color: var(--color-gold-accent); margin: 20px 0 10px 0; }
+.splash-nama { font-size: 3.2em; color: var(--color-gold-accent); margin: 20px 0 10px 0; }
 .sapaan-bawah, .ornamen-atas { color: #AAA; font-size: 0.9em; margin-top: 5px; letter-spacing: 1.5px; font-family: var(--font-body); }
-.nama-tamu { font-size: 1.8em; font-weight: 600; margin-bottom: 40px; letter-spacing: 3px; color: var(--color-text-light); }
+.nama-tamu { font-size: 1.6em; font-weight: 600; margin-bottom: 40px; letter-spacing: 3px; color: var(--color-text-light); }
 
 
 /* ================================== */
@@ -106,11 +106,11 @@ a { text-decoration: none; color: inherit; }
 /* ================================== */
 /* STYLING KONTEN */
 /* ================================== */
-.section-title { font-size: 2.8em; margin-bottom: 30px; letter-spacing: 1px; }
-.undangan-text { font-family: var(--font-body); font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; font-weight: 300; }
+.section-title { font-size: 2.2em; margin-bottom: 30px; letter-spacing: 1px; }
+.undangan-text { font-family: var(--font-body); font-size: 1.2em; letter-spacing: 5px; margin-bottom: 40px; font-weight: 300; }
 .mempelai-container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
 .pas-foto { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-gold-accent); object-fit: cover; margin-bottom: 15px; }
-.nama-mempelai { font-size: 3.5em; }
+.nama-mempelai { font-size: 2.5em; }
 .pemisah { font-size: 2.5em; }
 .putra-putri { font-size: 0.9em; color: #AAA; font-style: normal; line-height: 1.3; }
 .detail-container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
@@ -160,7 +160,7 @@ a { text-decoration: none; color: inherit; }
 .btn-maps:hover, .btn-direct-maps:hover, .btn-rsvp:hover { background-color: #FFD700; }
 
 #penutup { padding-bottom: 100px; /* Extra padding di paling bawah */ margin-top: 30px; border-top: 1px solid #333; padding-top: 50px;}
-.nama-mempelai-footer { font-size: 3em; }
+.nama-mempelai-footer { font-size: 2.5em; }
 
 /* ================================== */
 /* MEDIA QUERIES (Responsivitas) */
@@ -170,6 +170,8 @@ a { text-decoration: none; color: inherit; }
     .nama-tamu { font-size: 2.2em; }
     .section-title { font-size: 3.2em; }
     .nama-mempelai { font-size: 4em; }
+    .nama-mempelai-footer { font-size: 3em; }
+    .undangan-text { font-size: 1.5em; }
     
     .mempelai-container, .detail-container {
         flex-direction: row;
