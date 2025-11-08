@@ -21,7 +21,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6; 
     
-    /* Ornamen background */
+    /* Ornamen background (Pastikan path file benar) */
     background-image: url('assets/ornamen-bg.png'); 
     background-repeat: repeat;
     background-size: 100px; 
@@ -60,7 +60,7 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     padding: 20px;
     text-align: center;
-    /* GANTI 'assets/splash-bg.jpg' dengan foto latar splash screen */
+    /* Pastikan path file background benar */
     background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/splash-bg.jpg') no-repeat center center/cover;
     border-bottom: 2px solid var(--color-gold-accent); 
     box-sizing: border-box;
@@ -97,14 +97,9 @@ a { text-decoration: none; color: inherit; }
     display: block; /* SELALU TAMPIL */
     padding: 80px 20px; /* Tambah padding atas/bawah agar lebih lega saat di-scroll */
     text-align: center;
-    
-    /* Layering Halaman */
     position: relative; 
     z-index: 2; 
     background-color: transparent;
-    
-    /* Opsional: Garis pemisah tipis antar section jika mau */
-    /* border-bottom: 1px solid #222; */
 }
 
 
@@ -145,21 +140,11 @@ a { text-decoration: none; color: inherit; }
 .countdown-box span { font-size: 2.5em; font-weight: 600; }
 .countdown-box p { margin: 5px 0 0 0; font-size: 0.8em; }
 
-.bank-info-card { 
-    background-color: #1a1a1a; 
-    border: 1px solid var(--color-gold-accent); 
-    padding: 30px; 
-    border-radius: 5px; 
-    max-width: 400px;
-    margin: 0 auto;
-}
-.bank-name { font-size: 1.5em; font-weight: bold; }
-.bank-rek-number { font-family: monospace; font-size: 1.1em; }
 .map-container { border: 2px solid var(--color-gold-accent); border-radius: 10px; overflow: hidden; margin-top: 20px; }
 .map-container iframe { display: block; }
 
-/* Tombol */
-.btn-maps, .btn-direct-maps, .btn-copy-rek, .btn-rsvp {
+/* Tombol (Tombol Salin Rekening sudah dihapus) */
+.btn-maps, .btn-direct-maps, .btn-rsvp {
     background-color: var(--color-gold-accent);
     color: var(--color-background);
     border: none;
@@ -172,9 +157,9 @@ a { text-decoration: none; color: inherit; }
     margin-top: 15px;
     cursor: pointer;
 }
-.btn-maps:hover, .btn-direct-maps:hover, .btn-copy-rek:hover, .btn-rsvp:hover { background-color: #FFD700; }
+.btn-maps:hover, .btn-direct-maps:hover, .btn-rsvp:hover { background-color: #FFD700; }
 
-#penutup { padding-bottom: 100px; /* Extra padding di paling bawah agar tidak terlalu mepet layar */ margin-top: 30px; border-top: 1px solid #333; padding-top: 50px;}
+#penutup { padding-bottom: 100px; /* Extra padding di paling bawah */ margin-top: 30px; border-top: 1px solid #333; padding-top: 50px;}
 .nama-mempelai-footer { font-size: 3em; }
 
 /* ================================== */
