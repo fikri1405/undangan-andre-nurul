@@ -139,23 +139,18 @@ a { text-decoration: none; color: inherit; }
     background-color: var(--color-gold-accent);
     color: var(--color-darker-bg);
     border: none;
-    /* Kita sesuaikan font size agar pas */
     font-size: 0.9em; 
     font-weight: bold;
     
-    /* === HAPUS GAYA LINGKARAN === */
-    /* border-radius: 50%; */
-    /* width: 40px; */
-    /* height: 40px; */
-
-    /* === GANTI DENGAN GAYA PERSEGI PANJANG === */
-    border-radius: 5px; /* Sudut membulat */
+    /* === INI YANG PENTING: GAYA KOTAK PANJANG (BOX) === */
+    border-radius: 5px; /* Sudut membulat (bukan 50%) */
     width: auto; /* Lebar otomatis sesuai teks */
     height: auto; /* Tinggi otomatis */
-    padding: 10px 15px; /* Padding agar teks tidak mepet */
+    padding: 10px 15px; /* Jarak teks ke pinggir tombol */
     
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: var(--font-body); /* Pastikan font-nya benar */
 }
 
 .nav-btn:hover {
