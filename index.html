@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Nurul & Andre - 30 November 2025</title>
+    
+    <!-- 1. Menghubungkan File CSS -->
+    <link rel="stylesheet" href="style.css"> 
+    
+    <!-- 2. Import Google Fonts (Poppins & Great Vibes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ============================================== -->
+    <!-- 1. Halaman Pembuka (Splash Screen) -->
+    <!-- ============================================== -->
+    <section id="splash-screen">
+        <p class="ornamen-atas">Kepada Yth.</p>
+        <p class="undangan-text">Bapak/Ibu/Saudara/i</p>
+        
+        <!-- NAMA TAMU DI SINI (Bisa diisi via parameter URL) -->
+        <h1 class="nama-tamu">[Nama Tamu Undangan]</h1> 
+
+        <p class="sapaan-bawah">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda</p>
+        
+        <button id="open-invitation-btn" class="btn-maps">Buka Undangan</button>
+        
+        <!-- GANTI src dengan file musikmu -->
+        <audio id="bg-music" src="assets/bg-music.mp3" loop></audio>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2. Konten Utama Undangan (Container Halaman) -->
+    <!-- ============================================== -->
+    <main id="main-content">
+
+        <!-- ===== LAPISAN ANIMASI PARTIKEL (BARU) ===== -->
+        <canvas id="particle-canvas"></canvas>
+
+        <!-- Halaman 1: Sapaan -->
+        <section id="sapaan" class="page">
+            <h2 class="section-title">Bismillahirrahmannirrahiim</h2>
+            <p>Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+            <p>Ya Allah, perkenankanlah pernikahan putra-putri kami:</p>
+        </section>
+
+        <!-- Halaman 2: Mempelai -->
+        <section id="mempelai" class="page">
+            <p class="undangan-text">The Wedding Of</p>
+            <div class="mempelai-container">
+                <!-- Mempelai Wanita -->
+                <div class="mempelai-card">
+                    <!-- GANTI src dengan foto Nurul -->
+                    <img src="assets/nurul-foto.jpg" alt="Pas Foto Nurul Syafitri" class="pas-foto wanita">
+                    <h2 class="nama-mempelai">Nurul Syafitri</h2>
+                    <p class="putra-putri">
+                        Putri Ketiga dari<br>
+                        Bapak Abdul Rahman & Ibu Misnah
+                    </p>
+                </div>
+                
+                <h1 class="pemisah">&</h1>
+                
+                <!-- Mempelai Pria -->
+                <div class="mempelai-card">
+                    <!-- GANTI src dengan foto Andre -->
+                    <img src="assets/andre-foto.jpg" alt="Pas Foto Andre Haldiansyah" class="pas-foto pria">
+                    <h2 class="nama-mempelai">Andre Haldiansyah</h2>
+                    <p class="putra-putri">
+                        Putra Pertama dari<br>
+                        Bapak Syafruddin & Ibu Halimah
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman 3: Acara & Countdown -->
+        <section id="acara" class="page">
+            <h2 class="section-title">Save The Date</h2>
+            <div class="tanggal-utama">
+                <p class="hari">Minggu</p>
+                <p class="bulan-tahun">30 November 2025</p>
+            </div>
+            
+            <div class="detail-container">
+                <div class="acara-card">
+                    <h3 class="acara-type">Akad Nikah</h3>
+                    <p class="waktu">Pukul: 09:00 WIB</p>
+                    <p class="keterangan">Hingga selesai</p>
+                </div>
+                <div class="separator-line"></div> 
+                <div class="acara-card">
+                    <h3 class="acara-type">Resepsi</h3>
+                    <p class="waktu">Pukul: 10:00 WIB</p>
+                    <p class="keterangan">S/d Selesai</p>
+                </div>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div id="countdown-timer">
+                <h3 class="acara-type" style="margin-bottom: 20px;">Menuju Hari H</h3>
+                <div id="countdown-display" class="countdown-grid">
+                    <div class="countdown-box"><span id="days">00</span><p>Hari</p></div>
+                    <div class="countdown-box"><span id="hours">00</span><p>Jam</p></div>
+                    <div class="countdown-box"><span id="minutes">00</span><p>Menit</p></div>
+                    <div class="countdown-box"><span id="seconds">00</span><p>Detik</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman 4: Lokasi -->
+        <section id="lokasi" class="page">
+            <h2 class="section-title">Peta Lokasi</h2>
+            <p class="alamat-text">Dusun III Desa Pematang Ganjang</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3982.548240265024!2d99.12730426950736!3d3.459366978762817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1762600013433!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <!-- 
+              GANTI href DI BAWAH INI DENGAN LINK NAVIGASI LANGSUNG 
+              (Ambil dari tab "Send a link" / "Kirim link" di Google Maps)
+            -->
+            <a href="https://goo.gl/maps/vBtv1PJBozR2uo4bA" target="_blank">
+                 <button class="btn-maps btn-direct-maps">Navigasi Langsung (Arahkan)</button>
+            </a>
+        </section>
+
+        <!-- Halaman 5: Amplop Digital -->
+        <section id="amplop" class="page">
+            <h2 class="section-title">Kirim Hadiah & Doa Restu</h2>
+            <p class="info-amplop">
+                Doa restu adalah karunia tak ternilai. Jika ingin memberikan tanda kasih, dapat melalui:
+            </p>
+            <div class="bank-info-card">
+                <p class="bank-name">BANK BRI</p>
+                <!-- GANTI NOMOR REKENING -->
+                <p class="bank-rek-number">
+                    5334 0100 1234 5678 <br>
+                    A.N. Nurul Syafitri / Andre Haldiansyah
+                </p>
+                <button class="btn-copy-rek">Salin Nomor Rekening</button>
+            </div>
+        </section>
+        
+        <!-- Halaman 6: RSVP -->
+        <section id="rsvp" class="page">
+            <h2 class="section-title">Konfirmasi Kehadiran</h2>
+            <p>Kami menanti kehadiran Bapak/Ibu/Saudara/i untuk memberikan doa restu.</p>
+            
+            <!-- GANTI href DENGAN LINK GOOGLE FORM RSVP -->
+            <a href="https://forms.gle/GANTIDENGANLINKFORM" target="_blank">
+                <button class="btn-rsvp">Konfirmasi Kehadiran Saya</button>
+            </a>
+        </section>
+        
+        <!-- Halaman 7: Penutup -->
+        <section id="penutup" class="page">
+            <h2 class="section-title">Wassalamu'alaikum Wr. Wb.</h2>
+            <div class="terima-kasih">
+                <p>Kami Yang Berbahagia:</p>
+                <h3 class="nama-berbahagia">Keluarga Bapak Abdul Rahman & Bapak Syafruddin</h3>
+                <h1 class="nama-mempelai-footer">Nurul & Andre</h1>
+            </div>
+            <p class="copyright">Undangan Digital by Bred (2025)</p>
+        </section>
+        
+        <!-- ============================================== -->
+        <!-- 3. Navigasi Halaman (Fixed) -->
+        <!-- ============================================== -->
+        <div id="page-navigation">
+            <button id="prev-btn" class="nav-btn">&larr;</button>
+            <span id="page-indicator">1 / 7</span>
+            <button id="next-btn" class="nav-btn">&rarr;</button>
+        </div>
+        
+    </main>
+    
+    <!-- 3. Menghubungkan File JavaScript -->
+    <script src="script.js"></script> 
+</body>
+</html>

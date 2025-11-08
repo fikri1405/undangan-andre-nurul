@@ -1,0 +1,254 @@
+/* Import Google Fonts: Great Vibes (Heading) dan Poppins (Body) */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+/* Variabel Warna dan Font (Kembali ke versi awal yang bersih) */
+:root {
+    --color-background: #141414; /* Dark Charcoal */
+    --color-gold-accent: #C9A045; /* Muted Gold */
+    --color-text-light: #FFFFFF; /* White */
+    --color-darker-bg: #0A0A0A; 
+    --font-heading: 'Great vibes', cursive;
+    --font-body: 'Poppins', sans-serif; /* Kembali ke Poppins */
+}
+
+/* BASE STYLES */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    margin: 0;
+    /* Kita sisakan padding di bawah untuk tombol navigasi */
+    padding: 0 0 80px 0; 
+    overflow-x: hidden;
+    line-height: 1.6; 
+    
+    /* Ornamen background halus */
+    /* GANTI 'assets/ornamen-bg.png' dengan file ornamenmu */
+    background-image: url('assets/ornamen-bg.png'); 
+    background-repeat: repeat;
+    background-size: 100px; 
+}
+
+/* Lapisan hitam transparan di atas ornamen */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-background); 
+    opacity: 0.80; /* Dibuat 80% agar ornamen lebih terlihat */
+    z-index: -1; 
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-gold-accent);
+    margin-bottom: 0.5em; 
+    line-height: 1.1;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ================================== */
+/* SPLASH SCREEN */
+/* ================================== */
+#splash-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    /* GANTI 'assets/splash-bg.jpg' dengan foto latar splash screen */
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/splash-bg.jpg') no-repeat center center/cover;
+    border-bottom: 2px solid var(--color-gold-accent); 
+    box-sizing: border-box;
+}
+.splash-nama { font-size: 4em; color: var(--color-gold-accent); margin: 20px 0 10px 0; }
+.sapaan-bawah, .ornamen-atas { color: #AAA; font-size: 0.9em; margin-top: 5px; letter-spacing: 1.5px; font-family: var(--font-body); }
+.nama-tamu { font-size: 1.8em; font-weight: 600; margin-bottom: 40px; letter-spacing: 3px; color: var(--color-text-light); }
+
+
+/* ================================== */
+/* SECTION UTAMA (Sistem Halaman) */
+/* ================================== */
+#main-content {
+    display: none; /* Disembunyikan sampai tombol Buka diklik */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 10px; 
+    position: relative; /* Diperlukan untuk canvas */
+}
+
+/* ===== CANVAS UNTUK ANIMASI PARTIKEL (BARU) ===== */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Di atas background (body::before), di bawah konten */
+    pointer-events: none; /* Agar tidak menghalangi klik */
+}
+
+/* INTI DARI SISTEM HALAMAN */
+.page {
+    display: none; /* Sembunyikan semua halaman by default */
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Efek fade-in */
+    
+    /* Layering Halaman */
+    position: relative; 
+    z-index: 2; /* Konten halaman ada di atas partikel */
+    background-color: transparent; 
+}
+
+.page.active-page {
+    display: block; /* Tampilkan HANYA halaman yang aktif */
+}
+
+/* Animasi Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================== */
+/* NAVIGASI HALAMAN (Baru) */
+/* ================================== */
+#page-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-darker-bg);
+    border-top: 1px solid var(--color-gold-accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100; /* Navigasi paling atas */
+    box-sizing: border-box; 
+}
+
+.nav-btn {
+    background-color: var(--color-gold-accent);
+    color: var(--color-darker-bg);
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #FFD700;
+}
+
+.nav-btn:disabled {
+    background-color: #555;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#page-indicator {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-gold-accent);
+}
+
+
+/* ================================== */
+/* STYLING KONTEN (Sama seperti sebelumnya) */
+/* ================================== */
+.section-title { font-size: 2.8em; margin-bottom: 30px; letter-spacing: 1px; }
+.undangan-text { font-family: var(--font-body); font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; font-weight: 300; }
+.mempelai-container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.pas-foto { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-gold-accent); object-fit: cover; margin-bottom: 15px; }
+.nama-mempelai { font-size: 3.5em; }
+.pemisah { font-size: 2.5em; }
+.putra-putri { font-size: 0.9em; color: #AAA; font-style: normal; line-height: 1.3; }
+.detail-container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.tanggal-utama { font-size: 1.2em; font-weight: 600; color: var(--color-gold-accent); margin-bottom: 30px; }
+.separator-line { width: 80%; height: 1px; background: #333; margin: 0 auto; opacity: 1; }
+
+.acara-card { 
+    background-color: #1a1a1a; 
+    border-left: 3px solid var(--color-gold-accent); 
+    padding: 30px 20px; 
+    border-radius: 5px; 
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+.acara-card .acara-type { font-family: var(--font-body); font-size: 1.8em; font-weight: 700; color: var(--color-gold-accent); }
+
+#countdown-timer { 
+    background-color: transparent; 
+    border: 1px solid var(--color-gold-accent); 
+    padding: 30px 20px; 
+    margin-top: 40px; 
+    border-radius: 8px; 
+}
+.countdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; } /* 2 kolom di mobile */
+.countdown-box { border: 1px solid var(--color-gold-accent); border-radius: 5px; padding: 10px; }
+.countdown-box span { font-size: 2.5em; font-weight: 600; }
+.countdown-box p { margin: 5px 0 0 0; font-size: 0.8em; }
+
+.bank-info-card { 
+    background-color: #1a1a1a; 
+    border: 1px solid var(--color-gold-accent); 
+    padding: 30px; 
+    border-radius: 5px; 
+    max-width: 400px;
+    margin: 0 auto;
+}
+.bank-name { font-size: 1.5em; font-weight: bold; }
+.bank-rek-number { font-family: monospace; font-size: 1.1em; }
+.map-container { border: 2px solid var(--color-gold-accent); border-radius: 10px; overflow: hidden; margin-top: 20px; }
+.map-container iframe { display: block; }
+
+/* Tombol */
+.btn-maps, .btn-direct-maps, .btn-copy-rek, .btn-rsvp {
+    background-color: var(--color-gold-accent);
+    color: var(--color-background);
+    border: none;
+    padding: 12px 30px; 
+    font-size: 1em; 
+    border-radius: 5px; 
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-family: var(--font-body);
+    margin-top: 15px;
+    cursor: pointer;
+}
+.btn-maps:hover, .btn-direct-maps:hover, .btn-copy-rek:hover, .btn-rsvp:hover { background-color: #FFD700; }
+
+#penutup { padding-bottom: 60px; border-top: 1px solid #333; margin-top: 30px; }
+.nama-mempelai-footer { font-size: 3em; }
+
+/* ================================== */
+/* MEDIA QUERIES (Responsivitas) */
+/* ================================== */
+@media (min-width: 768px) {
+    .splash-nama { font-size: 5em; }
+    .nama-tamu { font-size: 2.2em; }
+    .section-title { font-size: 3.2em; }
+    .nama-mempelai { font-size: 4em; }
+    
+    .mempelai-container, .detail-container {
+        flex-direction: row;
+        gap: 60px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .separator-line { height: 120px; width: 1px; margin: auto 0; }
+    .countdown-grid { grid-template-columns: repeat(4, 1fr); } /* 4 kolom di desktop */
+}
