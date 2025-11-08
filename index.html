@@ -5,39 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Nurul & Andre - 30 November 2025</title>
     
+    <!-- 1. Menghubungkan File CSS -->
     <link rel="stylesheet" href="style.css"> 
     
+    <!-- 2. Import Google Fonts (Poppins & Great Vibes) -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     
+    <!-- ============================================== -->
+    <!-- 1. Halaman Pembuka (Splash Screen) -->
+    <!-- ============================================== -->
     <section id="splash-screen">
         <p class="ornamen-atas">Kepada Yth.</p>
         <p class="undangan-text">Bapak/Ibu/Saudara/i</p>
         
+        <!-- NAMA TAMU (diisi via URL ?to=NamaTamu) -->
         <h1 class="nama-tamu" id="nama-tamu-placeholder">[Nama Tamu Undangan]</h1> 
 
         <p class="sapaan-bawah">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda</p>
         
         <button id="open-invitation-btn" class="btn-maps">Buka Undangan</button>
         
+        <!-- Pastikan path ke file musik sudah benar -->
         <audio id="bg-music" src="assets/bg-music.mp3" loop></audio>
     </section>
 
+    <!-- ============================================== -->
+    <!-- 2. Konten Utama Undangan (SCROLL MODE) -->
+    <!-- ============================================== -->
     <main id="main-content">
 
+        <!-- ===== LAPISAN ANIMASI PARTIKEL ===== -->
         <canvas id="particle-canvas"></canvas>
 
+        <!-- Section 1: Sapaan -->
         <section id="sapaan" class="page">
             <h2 class="section-title">Bismillahirrahmannirrahiim</h2>
             <p>Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
             <p>Ya Allah, perkenankanlah pernikahan putra-putri kami:</p>
         </section>
 
+        <!-- Section 2: Mempelai -->
         <section id="mempelai" class="page">
             <p class="undangan-text">The Wedding Of</p>
             <div class="mempelai-container">
+                <!-- Mempelai Wanita -->
                 <div class="mempelai-card">
+                    <!-- Pastikan path ke foto sudah benar -->
                     <img src="assets/nurul-foto.jpg" alt="Pas Foto Nurul Syafitri" class="pas-foto wanita">
                     <h2 class="nama-mempelai">Nurul Syafitri</h2>
                     <p class="putra-putri">
@@ -48,7 +63,9 @@
                 
                 <h1 class="pemisah">&</h1>
                 
+                <!-- Mempelai Pria -->
                 <div class="mempelai-card">
+                    <!-- Pastikan path ke foto sudah benar -->
                     <img src="assets/andre-foto.jpg" alt="Pas Foto Andre Haldiansyah" class="pas-foto pria">
                     <h2 class="nama-mempelai">Andre Haldiansyah</h2>
                     <p class="putra-putri">
@@ -59,6 +76,7 @@
             </div>
         </section>
 
+        <!-- Section 3: Acara & Countdown -->
         <section id="acara" class="page">
             <h2 class="section-title">Save The Date</h2>
             <div class="tanggal-utama">
@@ -70,7 +88,7 @@
                 <div class="acara-card">
                     <h3 class="acara-type">Akad Nikah</h3>
                     <p class="waktu">Pukul: 09:00 WIB</p>
-                    <p class="keterangan">10:00</p>
+                    <p class="keterangan">Hingga selesai</p>
                 </div>
                 <div class="separator-line"></div> 
                 <div class="acara-card">
@@ -80,6 +98,7 @@
                 </div>
             </div>
             
+            <!-- Countdown Timer -->
             <div id="countdown-timer">
                 <h3 class="acara-type" style="margin-bottom: 20px;">Menuju Hari H</h3>
                 <div id="countdown-display" class="countdown-grid">
@@ -91,28 +110,34 @@
             </div>
         </section>
 
+        <!-- Section 4: Lokasi -->
         <section id="lokasi" class="page">
             <h2 class="section-title">Peta Lokasi</h2>
             <p class="alamat-text">Dusun III Desa Pematang Ganjang</p>
             
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.505325466838!2d99.1436116758856!3d3.3379023511559864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303161d1d9f9c9d1%3A0x6c0c1c1c1c1c1c1c!2sPematang%20Ganjang%2C%20Kec.%20Sei%20Rampah%2C%20Kabupaten%20Serdang%20Bedagai%2C%20Sumatera%20Utara!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Pastikan link embed Google Maps-nya valid -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3982.548240265024!2d99.12730426950736!3d3.459366978762817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1762600013433!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
+            <!-- Pastikan link Google Maps direct-nya valid -->
             <a href="https://goo.gl/maps/vBtv1PJBozR2uo4bA" target="_blank">
                  <button class="btn-maps btn-direct-maps">Navigasi Langsung (Arahkan)</button>
             </a>
         </section>
 
+        <!-- Section 5: RSVP -->
         <section id="rsvp" class="page">
             <h2 class="section-title">Konfirmasi Kehadiran</h2>
             <p>Kami menanti kehadiran Bapak/Ibu/Saudara/i untuk memberikan doa restu.</p>
             
+            <!-- Pastikan link Google Form-nya valid -->
             <a href="https://forms.gle/pMGX7afQdoinSqd17" target="_blank">
                 <button class="btn-rsvp">Konfirmasi Kehadiran Saya</button>
             </a>
         </section>
         
+        <!-- Section 6: Penutup -->
         <section id="penutup" class="page">
             <h2 class="section-title">Wassalamu'alaikum Wr. Wb.</h2>
             <div class="terima-kasih">
@@ -123,8 +148,9 @@
             <p class="copyright">Undangan Digital by Fikri (2025)</p>
         </section>
         
-        </main>
+    </main>
     
+    <!-- 3. Menghubungkan File JavaScript -->
     <script src="script.js"></script> 
 </body>
 </html>
